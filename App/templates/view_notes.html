@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <h2>All Notes</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <td>note title</td>
+                <td>note desc</td>
+            </tr>
+        </thead>
+        <tbody>
+            {%for m in notes%}
+
+            <tr>
+                <td>{{m.notetitle}}</td>
+                <td>{{m.notedescr}}</td>
+            </tr>
+            {%endfor%}
+
+        </tbody>
+
+    </table>
+</body>
+</html>

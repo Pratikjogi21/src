@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo Lists</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header{
+            width: 100%;
+            height: 90px;
+            /* border: 1px solid red; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* position: sticky;
+            top: 0px; */
+            /* background-color: aquamarine;
+             */
+             background-color: lemonchiffon;
+            
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 1);
+
+            padding: 4px;
+        }
+        header img{
+            width: 70px;
+            height: 70px;
+        }
+        body{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            /* justify-content: center; */
+            align-items: center;
+            /* justify-content: space-between; */
+            gap: 20px;
+            background-color: lemonchiffon;
+            padding-bottom: 35px;
+            
+        }
+        section{
+            width: 85%;
+            min-height: 50vh;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            /* justify-content: center; */
+            /* align-items: center; */
+            overflow-y: scroll;
+            /* box-shadow: inset 0 0 10px rgba(0, 0, 0, 1); */
+            padding: 25px;
+
+        }
+        div{
+            width: 100%;
+            min-height:70px ;
+            border: 2px solid black;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 20px;
+            background-color: whitesmoke;
+            border-radius: 10px;
+            
+        /* overflow-y:scroll; */
+        }
+
+        div a{
+            visibility: hidden;
+        }
+        div:hover a{
+            visibility: visible;
+        }
+        
+        a i{
+            font-size: 30px;
+        }
+        .fa-solid{
+            color: red;
+        }
+        .span1{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            gap: 8px;
+        }
+        h6{
+            color: blue;
+        }
+        #add{
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+            scale: 2.2;
+        }
+        .fa-eye{
+            color: black;
+        }
+        .fa-pen-to-square{
+            color: cadetblue;
+        }
+        .fa-clipboard-check{
+            color: darkorange;
+        }
+        
+    </style>
+</head>
+<header>
+    <img src="https://cdn-icons-png.flaticon.com/512/4697/4697260.png" alt="">
+    <h1>ToDo Lists</h1>
+</header>
+<body>
+    
+    <h2 id="add"><a href="/add" title="Add Note"><i class="fa-solid fa-circle-plus"></i></a></h2>
+
+
+
+    <section>
+        {%for m in notes%}
+
+        <div>
+           <span class="span1">
+
+            <h2>
+                <i class="fa-solid fa-clipboard-check"></i>
+                {{m.notetitle}}
+            </h2>
+            <h6>
+
+            {{m.date}}
+
+            </h6>
+           </span>
+           
+            <span>
+               
+                <a href="viewone/{{m.id}}" title="View"><i class="fa-solid fa-eye"></i></a>
+                <a href="edit/{{m.id}}" title="Edit"><i class="fa-solid fa-pen-to-square"></i></a>
+                <a href="delete/{{m.id}}" title="Delete"><i class="fa-solid fa-trash-can"></i></a>
+            </span>
+        </div>
+        {%endfor%}
+
+    </section>
+    <script>
+        
+    </script>
